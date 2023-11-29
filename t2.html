@@ -1,0 +1,130 @@
+<!-- movies.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies - Netflix</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #111;
+            color: rgb(230, 20, 20);
+        }
+
+        header {
+            padding: 1rem;
+            background-color: #111;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #111;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        section {
+            padding: 20px;
+            text-align: left;
+        }
+
+        section h2 {
+            margin-bottom: 20px;
+        }
+
+        .movie-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .movie-card {
+            width: 200px;
+            background-color: #333;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .movie-card:hover {
+            transform: scale(1.05);
+        }
+
+        .movie-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-bottom: 2px solid #e50914;
+        }
+
+        .movie-card h3 {
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #111;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Netflix</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="C:\Users\ZIYA\OneDrive\Desktop\new.html">Home</a></li>
+            <li><a href="#t2">Movies</a></li>
+            <li><a href="C:\Users\ZIYA\OneDrive\Desktop\t3.html">Web Series</a></li>
+        </ul>
+    </nav>
+
+    <section id="movies">
+        <h2>Movies</h2>
+        <div class="movie-container">
+            <!-- Example Movie Card -->
+            <div class="movie-card">
+                <img src="c:\Users\ZIYA\Saved Games\Downloads\WhatsApp Image 2023-11-27 at 12.29.59 PM (3).jpeg" alt="Movie Title">
+                <h3>Movie Title</h3>
+            </div>
+            <!-- Add more movie cards as needed -->
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Netflix</p>
+    </footer>
+</body>
+</html>
