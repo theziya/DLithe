@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Clone</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #111;
+            color: white;
+        }
+
+        header {
+            padding: 1rem;
+            background-color: #111;
+            text-align: left;
+        }
+
+        nav {
+    background-color: #333;
+    padding: 10px;
+    color: white;
+    text-align: right;
+    }
+
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
+        }
+
+        .login-form {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-form h2 {
+            margin-bottom: 20px;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            border: none;
+            border-radius: 4px;
+            background-color: #333;
+            color: white;
+        }
+
+        .login-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #e50914;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login-form button:hover {
+            background-color: #ff3e31;
+        }
+
+        .main-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .movie-card {
+            width: 200px;
+            margin: 20px;
+            background-color: #333;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .movie-card:hover {
+            transform: scale(1.05);
+        }
+
+        .movie-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-bottom: 2px solid #e50914;
+        }
+
+        .movie-card h3 {
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            position: sticky;
+            bottom: 0;
+            width: 100%;
+            background-color: #111;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="c:\Users\ZIYA\Saved Games\Downloads\netflix.png" alt="Netflix Logo" style="width: 100px; height: auto;">
+    </header>
+
+    <nav>
+            <a href="#home"><b>Home</b></a>
+            <a href="C:\Users\ZIYA\OneDrive\Desktop\dlithe\DLithe\frontend-development\t2.html"><b>Movies</b></a>
+            <a href="C:\Users\ZIYA\OneDrive\Desktop\t3.html"><b>Web Series</b></a>
+    </nav>
+    
+    <!-- Login Page -->
+    <div class="login-container" id="loginPage">
+        <div class="login-form">
+            <h2>Login</h2>
+            <input type="text" id="username" placeholder="Username" />
+            <input type="password" id="password" placeholder="Password" />
+            <button onclick="login()">Login</button>
+        </div>
+    </div>
+
+    <!-- Home Page -->
+    <div class="main-container" id="homePage" style="display: none;">
+        <!-- Movie cards will be dynamically generated here -->
+        <!-- Example Movie Card -->
+        <div class="movie-card">
+            <img src="c:\Users\ZIYA\Saved Games\Downloads\WhatsApp Image 2023-11-27 at 12.29.59 PM (1).jpeg" alt="Movie Title">
+            <h3>THE MOTHER</h3>
+            <button class="like-button" onclick="toggleLike(this)">Like</button>
+        <button class="wishlist-button" onclick="addToWishlist(this)">Wishlist</button>
+        </div>
+        <!-- Add more movie cards as needed -->
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Netflix</p>
+    </footer>
+
+    <!-- ... (your HTML code above) -->
+
+<script>
+    const users = [
+        { username: 'user1', password: 'password1' },
+        { username: 'user2', password: 'password2' }
+    ];
+
+    const movieData = [
+        { title: 'Movie 1', imageUrl: 'https://via.placeholder.com/200x280' },
+        { title: 'Movie 2', imageUrl: 'https://via.placeholder.com/200x280' },
+        // Add more movie data as needed
+    ];
+
+    function login() {
+        const usernameInput = document.getElementById('username').value;
+        const passwordInput = document.getElementById('password').value;
+
+        const authenticatedUser = users.find(user =>
+            user.username === usernameInput && user.password === passwordInput
+        );
+
+        if (authenticatedUser) {
+            document.getElementById('loginPage').style.display = 'none';
+            document.getElementById('homePage').style.display = 'flex';
+            fetchMovieData();
+        } else {
+            alert('Invalid credentials. Please try again.');
+        }
+    }
+
+    function fetchMovieData() {
+        const homePage = document.getElementById('homePage');
+        const movieContainer = homePage.querySelector('.main-container');
+
+        movieContainer.innerHTML = '';
+
+        movieData.forEach(movie => {
+            const movieCard = document.createElement('div');
+            movieCard.className = 'movie-card';
+
+            const img = document.createElement('img');
+            img.src = movie.imageUrl;
+            img.alt = movie.title;
+
+            const title = document.createElement('h3');
+            title.textContent = movie.title;
+
+            movieCard.appendChild(img);
+            movieCard.appendChild(title);
+            movieContainer.appendChild(movieCard);
+        });
+    }
+    function toggleLike(button) {
+        button.classList.toggle('liked');
+    }
+</script>
+<script>
+
+    function addToWishlist(button) {
+        const movieTitle = button.parentNode.querySelector('h3').textContent;
+        const wishlistContainer = document.getElementById('wishlistContainer');
+
+        const wishlistItem = document.createElement('div');
+        wishlistItem.className = 'wishlist-item';
+        wishlistItem.textContent = movieTitle;
+
+        wishlistContainer.appendChild(wishlistItem);
+        wishlistContainer.style.display = 'flex';
+    }
+</script>
+
+<!-- ... (your HTML code below) -->
+
+
+</body>
+
+</html>

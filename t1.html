@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Clone</title>
+    <style>
+        /* Your styles here... */
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <img src="netflix_logo.png" alt="Netflix Logo" style="width: 100px; height: auto;">
+        <a href="#" onclick="showPage('homePage')">Home</a>
+        <a href="#" onclick="showPage('moviesPage')">Movies</a>
+        <a href="#" onclick="showPage('webSeriesPage')">Web Series</a>
+    </nav>
+
+    <!-- Home Page -->
+    <div class="main-container" id="homePage">
+        <!-- Movie cards for Home will be dynamically generated here -->
+        <!-- Example Movie Card -->
+        <div class="movie-card">
+            <img src="https://via.placeholder.com/200x280" alt="Movie Title">
+            <h3>Movie Title</h3>
+        </div>
+        <!-- Add more movie cards as needed -->
+    </div>
+
+    <!-- Movies Page -->
+    <div class="main-container" id="moviesPage" style="display: none;">
+        <!-- Movie cards for Movies will be dynamically generated here -->
+        <!-- Example Movie Card -->
+        <div class="movie-card">
+            <img src="https://via.placeholder.com/200x280" alt="Movie Title">
+            <h3>Movie Title</h3>
+        </div>
+        <!-- Add more movie cards as needed -->
+    </div>
+
+    <!-- Web Series Page -->
+    <div class="main-container" id="webSeriesPage" style="display: none;">
+        <!-- Movie cards for Web Series will be dynamically generated here -->
+        <!-- Example Movie Card -->
+        <div class="movie-card">
+            <img src="https://via.placeholder.com/200x280" alt="Movie Title">
+            <h3>Movie Title</h3>
+        </div>
+        <!-- Add more movie cards as needed -->
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Netflix Clone</p>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            document.getElementById('homePage').style.display = 'none';
+            document.getElementById('moviesPage').style.display = 'none';
+            document.getElementById('webSeriesPage').style.display = 'none';
+
+            // Show the selected page
+            document.getElementById(pageId).style.display = 'flex';
+        }
+
+        // Your JavaScript code here...
+    </script>
+</body>
+
+</html>
